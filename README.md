@@ -1,24 +1,16 @@
-# json-server-base
+# manga API base
 
-Esse é o repositório com a base de JSON-Server + JSON-Server-Auth já configurada, feita para ser usada no desenvolvimento das API's nos Capstones do Q2.
+Api criada com base numa lista de mangá e suas informações. Possui Login e Cadastro.
 
-## Endpoints
+# End-Points
 
-Assim como a documentação do JSON-Server-Auth traz (https://www.npmjs.com/package/json-server-auth), existem 3 endpoints que podem ser utilizados para cadastro e 2 endpoints que podem ser usados para login.
+POST /login - Login do usuário; (formato de informações JSON, retorna TOKEN)
+POST /register - Cadastrar usuário; (formato de informações JSON)
 
-### Cadastro
+GET /user/id - Pega usuário pelo ID (necessita Bearer TOKEN)
 
-POST /register <br/>
-POST /signup <br/>
-POST /users
+GET /manga - Possibilita somente a leitura de uma lista de mangás para todos os usuários, mesmo que não logados (Não necessita Bearer)
 
-Qualquer um desses 3 endpoints irá cadastrar o usuário na lista de "Users", sendo que os campos obrigatórios são os de email e password.
-Você pode ficar a vontade para adicionar qualquer outra propriedade no corpo do cadastro dos usuários.
+GET/mangaspecial - Possibilita somente a leitura de uma lista de mangás especiais somente para usuários logados (necessita Bearer TOKEN)
 
-
-### Login
-
-POST /login <br/>
-POST /signin
-
-Qualquer um desses 2 endpoints pode ser usado para realizar login com um dos usuários cadastrados na lista de "Users"
+POST/userlist - Voce precisa ser dono da lista para escrever/alterar ela, e necessita estar logado para conseguir fazer a leitura (necessita Bearer TOKEN)
